@@ -1,3 +1,6 @@
 body {
     padding: 10px;
 }
+body {background-color:tan;opacity:0.9;}
+h1 {color:red; font-family:serif;font-size:48px; text-align:center;}
+.nav-item {font-size:36px;text-align:right;border-style: ridge;border-color: red;}
