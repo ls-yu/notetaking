@@ -80,11 +80,12 @@ def register(request):
             user = User.objects.create_user(username, email, password)
             user.save()
             userProfile = UserProfile(user=user, is_teacher=is_teacher, is_notetaker=is_notetaker, is_noterequester=is_noterequester, school_code=school_code)
+            userProfile.save()
         except IntegrityError:
             return render(request, "notetaking/register.html", {
                 "message": "Username already taken."
             })
-        login(request, user)
+        login_view(request, user)
         return HttpResponseRedirect(reverse("index"))
     else:
         return render(request, "notetaking/register.html")

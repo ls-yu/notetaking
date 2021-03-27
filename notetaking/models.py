@@ -10,4 +10,4 @@ class UserProfile(models.Model):
     is_noterequester = models.BooleanField(default=False)
     is_teacher = models.BooleanField(default=False)
     school_code = models.CharField(max_length=6)
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
