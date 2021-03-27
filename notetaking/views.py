@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from .models import User, UserProfile
 from django.db import IntegrityError
+from django.contrib.auth import authenticate, login, logout
 
 
 
@@ -85,7 +86,7 @@ def register(request):
             return render(request, "notetaking/register.html", {
                 "message": "Username already taken."
             })
-        login_view(request, user)
+        login(request, user)
         return HttpResponseRedirect(reverse("index"))
     else:
         return render(request, "notetaking/register.html")
