@@ -163,7 +163,7 @@ def class_view(request, class_code):
             text = form.cleaned_data["text"]
             date = datetime.now().strftime("%x")
             notetaker = get_object_or_404(UserProfile, pk=request.user)
-            note = Note(which_class=the_class,title=title, text=text, image=image, notetaker=notetaker, date=date)
+            note = Note(which_class=the_class,title=title, text=text, notetaker=notetaker, date=date)
             note.save()
         else:
             return HttpResponse("Failed to submit note")
