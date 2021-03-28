@@ -5,9 +5,13 @@ Home Page
 
 {% block body %}
     <h3>View Classes:</h3>
+        {% if is_teacher %}
+        <a href="{% url 'new_class' %}" class="list-link">Create A New Class</a>
+        {% endif %}
         {% for class in classes%}
         <li class="list-item">
-            <a class="list-link" href="{% url 'class' class_id = class_id %}">{{class.name}}</a>
+            <a class="list-link" href="{% url 'class_view' class_code=class.class_code %}">{{class.name}} | Code: {{class.class_code}}</a>
         </li>
         {% endfor %}
+    
 {% endblock %}

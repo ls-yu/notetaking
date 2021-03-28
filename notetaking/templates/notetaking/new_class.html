@@ -1,8 +1,12 @@
 {% extends "notetaking/layout.html" %}
 {% block title %}
-Home Page
+New Class
 {% endblock %}
 
 {% block body %}
-
+<form method = "POST">
+{% csrf_token %}
+{{form}}
+<input type="submit" value="Submit">
+</form>
 {% endblock %}

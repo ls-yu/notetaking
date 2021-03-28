@@ -1,7 +1,11 @@
 body {
     padding: 10px;
+    background-color:#e1f3f8;
+    opacity:0.9;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 50px;
 }
-body {background-color:#e1f3f8;opacity:0.9;}
 h1 {color:#212121;font-size:80px; text-align:center;}
 .nav-item {
     background-color:white; /* Green */
@@ -12,7 +16,19 @@ h1 {color:#212121;font-size:80px; text-align:center;}
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    margin: 4px 10px;
+    margin: 20px 10px;
     cursor: pointer;
     border-radius: 10px;
   }
+.note-link {
+    font-size: 22px;
+}
+.list-item{
+    font-size: 22px;
+}
+.form-item{
+    font-size: 16px;
+}
+p{
+    padding: 20px;
+}

@@ -1,0 +1,11 @@
+{% extends "notetaking/layout.html" %}
+{% block title %}
+{{note.title}}
+{% endblock %}
+
+{% block body %}
+<h4>{{note.title}}</h4>
+<h5>{{note.date}}</h5>
+<p>{{note.text}}</p>
+
+{% endblock %}

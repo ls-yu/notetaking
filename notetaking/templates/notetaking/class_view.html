@@ -1,0 +1,30 @@
+{% extends "notetaking/layout.html" %}
+{% block title %}
+{{class.name}}
+{% endblock %}
+
+{% block body %}
+<h3>{{class.name}}</h3>
+{% if userprofile.is_teacher or userprofile.is_notetaker %}
+<h4>New Note:</h4>
+<form method="POST" id="noteform">
+    {% csrf_token %}
+    <label for="title">Title:</label>
+    <input type="text" name="title" maxlength="100" minlength="1" class="form-item">
+    <br>
+    <label for="text">Content:</label>
+    <br>
+    <textarea class="form-item" name="text" rows="20" cols="100" form="noteform" maxlength="15000" id="textarea"></textarea>
+    <br>
+    <input type="submit" value="Submit Notes">
+</form>
+{% endif %}
+<br>
+{% for note in notes %}
+<li class="list-item">
+    <a href="{% url 'note' note_id=note.note_id %}" class="note-link">{{note.title}} {{note.date}}</a>
+</li>
+    
+{% endfor %}
+
+{% endblock %}
