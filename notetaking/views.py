@@ -118,7 +118,7 @@ def register(request):
         try:
             user = User.objects.create_user(username, email, password)
             user.save()
-            userProfile = UserProfile(user=user, is_teacher=is_teacher, is_notetaker=is_notetaker, is_noterequester=is_noterequester, school_code=school_code)
+            userProfile = UserProfile(user=user, is_teacher=is_teacher, is_notetaker=is_notetaker, is_noterequester=is_noterequester)
             userProfile.save()
             print(userProfile.is_teacher)
         except IntegrityError:
@@ -185,3 +185,14 @@ def note(request, note_id):
     return render(request, "notetaking/note.html", {
         'note': note
     })
+
+def join_class(request):
+    if request.method == 'POST':
+        code = request.POST["code"]
+        joined_class = get_object_or_404(Class, class_code=code)
+        userprofile = get_object_or_404(UserProfile, pk=request.user)
+        joined_class.students.add(userprofile)
+        joined_class.save()
+        return HttpResponseRedirect(reverse(index))
+    else:
+        return render(request, "notetaking/join_class.html")

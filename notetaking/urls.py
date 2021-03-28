@@ -28,7 +28,8 @@ urlpatterns = [
     path("register", views.register, name="register"),
     path("class_view/<str:class_code>", views.class_view, name="class_view"),
     path("new_class", views.new_class, name="new_class"),
-    path("note/<int:note_id>", views.note, name="note")
+    path("note/<int:note_id>", views.note, name="note"),
+    path("join_class", views.join_class, name="join_class")
 ]
 
 if settings.DEBUG:
